@@ -52,12 +52,13 @@ jobs:
           git
           make
           python
+          brotli
           
         pacboy: >-
           cmake:p
           clang:p
           ninja:p
-          brotli-devel:p
+
     - name: make
       if: runner.os == 'Windows'
       shell: msys2 {0}
