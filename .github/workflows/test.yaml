@@ -57,7 +57,8 @@ jobs:
           cmake:p
           clang:p
           ninja:p
-    - name: Configure CMake
+          brotli-devel:p
+    - name: make
       if: runner.os == 'Windows'
       shell: msys2 {0}
       run: cd test && make -j
