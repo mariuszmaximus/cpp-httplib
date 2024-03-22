@@ -50,6 +50,7 @@ jobs:
         update: true
         install: >-
           git
+          make
           
         pacboy: >-
           cmake:p
