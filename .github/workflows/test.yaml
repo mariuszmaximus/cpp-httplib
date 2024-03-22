@@ -36,8 +36,21 @@ jobs:
       if: matrix.os == 'windows-latest'
       uses: microsoft/setup-msbuild@v2
     - name: make-windows
-      if: matrix.os == 'windows-latest'
+      if: matrix.os == 'windows-latestXX'
       run: |
         cd test
         msbuild.exe test.sln /verbosity:minimal /t:Build "/p:Configuration=Release;Platform=x64"
         x64\Release\test.exe
+    - uses: msys2/setup-msys2@v2
+      if: runner.os == 'Windows'
+      with:
+        msystem: ${{matrix.sys}} 
+        release: true
+        update: true
+        install: >-
+          git
+          
+        pacboy: >-
+          cmake:p
+          clang:p
+          ninja:p
