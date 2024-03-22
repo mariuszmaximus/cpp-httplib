@@ -59,4 +59,4 @@ jobs:
     - name: Configure CMake
       if: runner.os == 'Windows'
       shell: msys2 {0}
-      run: cd test && make fuzz_test
+      run: cd test && make -j
