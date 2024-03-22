@@ -10,6 +10,7 @@ jobs:
     strategy:
       matrix:
         os: [windows-latest]
+        sys: [ clang64 ]
 #        os: [macOS-latest, ubuntu-latest, windows-latest]
 
     steps:
