@@ -1,5 +1,5 @@
 CXX = clang++
-CXXFLAGS = -g -std=c++11 -I. -Wall -Wextra -Wtype-limits -Wconversion -Wshadow -lWs2_32 -lCrypt32 # -fno-exceptions -DCPPHTTPLIB_NO_EXCEPTIONS -fsanitize=address
+CXXFLAGS = -g -std=c++11 -I. -Wall -Wextra -Wtype-limits -Wconversion -Wshadow # -fno-exceptions -DCPPHTTPLIB_NO_EXCEPTIONS -fsanitize=address
 
 PREFIX = /usr/local
 #PREFIX = $(shell brew --prefix)
@@ -12,6 +12,11 @@ ifneq ($(OS), Windows_NT)
 	ifeq ($(UNAME_S), Darwin)
 		OPENSSL_SUPPORT += -DCPPHTTPLIB_USE_CERTS_FROM_MACOSX_KEYCHAIN -framework CoreFoundation -framework Security
 	endif
+endif
+
+#  MSYS2 on Windows 
+ifeq ($(OS),Windows_NT)
+    CXXFLAGS += -lcrypt32 -lWs2_32
 endif
 
 ZLIB_SUPPORT = -DCPPHTTPLIB_ZLIB_SUPPORT -lz
