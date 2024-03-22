@@ -51,6 +51,7 @@ jobs:
         install: >-
           git
           make
+          python
           
         pacboy: >-
           cmake:p
